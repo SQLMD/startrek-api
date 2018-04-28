@@ -1,5 +1,5 @@
 const OK = 200;
-//const FAIL = 400;
+const FAIL = 400;
 //const SERVER_ERROR = 500;
 
 const render = (res, code, page) => {

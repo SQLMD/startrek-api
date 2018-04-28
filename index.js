@@ -14,3 +14,5 @@ app.use("/", [
 app.listen(3000, () => {
   console.log("Your server is listening.");
 });
+
+module.exports = app;
