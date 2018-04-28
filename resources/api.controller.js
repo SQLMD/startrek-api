@@ -32,5 +32,10 @@ module.exports = {
   editEpisode(req, res) {
     const id = req.params.id;
     send(res, OK, id, false);
+  },
+  deleteEpisode(req, res) {
+    const id = req.params.id;
+    episodeData.splice(id - 1, 1);
+    send(res, OK, episodeData, true);
   }
 };

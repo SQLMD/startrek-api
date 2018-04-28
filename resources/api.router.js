@@ -6,6 +6,6 @@ router.get("/startrek", controller.home);
 router.get("/startrek/episodes", controller.episodes);
 router.post("/startrek/episodes", controller.addEpisode);
 router.patch("/startrek/episodes/:id", controller.editEpisode);
-//router.delete("/startrek/episodes", controller.deleteEpisode);
+router.delete("/startrek/episodes/:id", controller.deleteEpisode);
 
 module.exports = router;
