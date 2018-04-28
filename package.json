@@ -1,0 +1,30 @@
+{
+  "name": "startrek-api",
+  "version": "1.0.0",
+  "description": "basic api to access star trek tv episode information",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/test.js && yarn lint",
+    "lint": "eslint --fix ./**/*.js",
+    "start": "node index.js",
+    "migrate": "knex migrate:latest --knexfile services/db/knexfile.js",
+    "rollback": "knex migrate:rollback --knexfile services/db/knexfile.js"
+  },
+  "repository": "https://github.com/SQLMD/StarTrek_API.git",
+  "author": "Mike Donnelly <sqldonnelly@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "knex": "^0.14.6",
+    "pg": "^7.4.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "expect": "^22.4.3",
+    "mocha": "^5.1.1",
+    "prettier": "^1.12.1"
+  }
+}
