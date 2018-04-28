@@ -18,7 +18,15 @@ module.exports = {
   home(req, res) {
     render(res, OK, "home.ejs");
   },
-  allEpisodes(req, res) {
+  episodes(req, res) {
+    send(res, OK, episodeData, true);
+  },
+  addEpisode(req, res) {
+    episodeData.push({
+      id: 3,
+      title: "I added this one",
+      airDate: "1966-09-16"
+    });
     send(res, OK, episodeData, true);
   }
 };
