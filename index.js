@@ -1,9 +1,15 @@
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.render("home.ejs");
-});
+const bodyParser = require("body-parser");
+
+const apiRouter = require("./resources/api.router");
+
+app.use("/", [
+  bodyParser.json(),
+  bodyParser.urlencoded({ extended: true }),
+  apiRouter
+]);
 
 app.listen(3000, () => {
   console.log("Your server is listening.");
