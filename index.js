@@ -1,3 +1,5 @@
+const config = require("./config.js");
+
 const express = require("express");
 const app = express();
 
@@ -11,7 +13,7 @@ app.use("/", [
   apiRouter
 ]);
 
-app.listen(3000, () => {
+app.listen(config.express.port, () => {
   console.log("Your server is listening.");
 });
 
