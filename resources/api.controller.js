@@ -28,5 +28,9 @@ module.exports = {
       airDate: "1966-09-16"
     });
     send(res, OK, episodeData, true);
+  },
+  editEpisode(req, res) {
+    const id = req.params.id;
+    send(res, OK, id, false);
   }
 };
