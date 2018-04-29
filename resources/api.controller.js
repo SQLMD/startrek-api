@@ -32,6 +32,18 @@ module.exports = {
         res.status(SERVER_ERROR).json({ error });
       });
   },
+  getSeries(req, res) {
+    const id = req.params.id;
+    database("episode")
+      .where("series_id", id)
+      .select()
+      .then(episosdes => {
+        res.status(OK).json({ startrek: episosdes });
+      })
+      .catch(error => {
+        res.status(SERVER_ERROR).json({ error });
+      });
+  },
   createEpisode(req, res) {
     const episode = req.body;
     database("episode")

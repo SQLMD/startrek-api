@@ -7,6 +7,8 @@ router.get("/startrek/episodes", controller.getEpisodes);
 
 router.get("/startrek/episodes/:id", controller.getEpisode);
 
+router.get("/startrek/episodes/series/:id", controller.getSeries);
+
 router.post("/startrek/episodes", controller.createEpisode);
 
 router.delete("/startrek/episodes/:id", controller.deleteEpisode);
