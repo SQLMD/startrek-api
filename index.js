@@ -54,6 +54,33 @@ app.post("/startrek/episodes", (req, res) => {
     });
 });
 
+app.delete("/startrek/episodes/:id", (req, res) => {
+  const id = req.params.id;
+  database("episode")
+    .where("number", id)
+    .delete()
+    .then(episode => {
+      res.status(204).json({});
+    })
+    .catch(error => {
+      res.status(500).json({ error });
+    });
+});
+
+app.patch("/startrek/episodes/:id", (req, res) => {
+  const episode = req.body;
+  const id = req.params.id;
+  database("episode")
+    .where("number", id)
+    .update(episode)
+    .then(episode => {
+      res.status(204).json({});
+    })
+    .catch(error => {
+      res.status(500).json({ error });
+    });
+});
+
 app.listen(config.express.port, () => {
   console.log("Your server is listening.");
 });
