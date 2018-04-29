@@ -2,12 +2,6 @@
 
 A simple api to access information about star trek television episodes 
 
-<<<<<<< HEAD
-After starting postgres run these bash commands from the ~/db/ folder:
-
-* createdb startrek
-* psql -d startrek -f seed_data.sql
-=======
 ## Installation
 
 ### Requirements
