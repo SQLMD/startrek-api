@@ -6,20 +6,70 @@ const CREATED = 201;
 const FAIL = 400;
 const SERVER_ERROR = 500;
 
-const render = (res, code, page) => {
-  res.status(code).render(page);
-};
-const send = (res, code, data, json = true) => {
-  res.status(code).send(json ? JSON.stringify(data) : data);
-};
-
-const episodeData = [
-  { id: 1, title: "The Man Trap", airDate: "1966-09-08" },
-  { id: 2, title: "Charlie X", airDate: "1966-09-15" }
-];
-
 module.exports = {
   home(req, res) {
-    render(res, OK, "home.ejs");
+    res.status(OK).render("home.ejs");
+  },
+  getEpisodes(req, res) {
+    database("episode")
+      .select()
+      .then(episosdes => {
+        res.status(OK).json({ startrek: episosdes });
+      })
+      .catch(error => {
+        res.status(SERVER_ERROR).json({ error });
+      });
+  },
+  getEpisode(req, res) {
+    const id = req.params.id;
+    database("episode")
+      .where("number", id)
+      .select()
+      .then(episosde => {
+        res.status(OK).json({ startrek: episosde });
+      })
+      .catch(error => {
+        res.status(SERVER_ERROR).json({ error });
+      });
+  },
+  createEpisode(req, res) {
+    const episode = req.body;
+    database("episode")
+      .insert(episode, "id")
+      .then(episode => {
+        res.status(CREATED).json({ id: episode[0] });
+      })
+      .catch(error => {
+        res.status(SERVER_ERROR).json({ error });
+      });
+  },
+  deleteEpisode(req, res) {
+    const id = req.params.id;
+    database("episode")
+      .where("number", id)
+      .delete()
+      .then(episode => {
+        res
+          .status(OK)
+          .json({ message: `Data for Episode ${id} has been deleted` });
+      })
+      .catch(error => {
+        res.status(SERVER_ERROR).json({ error });
+      });
+  },
+  updateEpisode(req, res) {
+    const episode = req.body;
+    const id = req.params.id;
+    database("episode")
+      .where("number", id)
+      .update(episode)
+      .then(episode => {
+        res
+          .status(OK)
+          .json({ message: `Data for Episode ${id} has been updated` });
+      })
+      .catch(error => {
+        res.status(SERVER_ERROR).json({ error });
+      });
   }
 };
