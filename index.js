@@ -18,6 +18,10 @@ app.use("/", [
 const configuration = require("./services/db/knexfile");
 const database = require("knex")(configuration);
 
+app.get(["/", "/startrek"], (req, res) => {
+  res.status(200).render("home.ejs");
+});
+
 app.get("/startrek/episodes", (req, res) => {
   database("episode")
     .select()
