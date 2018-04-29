@@ -26,7 +26,7 @@ app.get("/startrek/episodes", (req, res) => {
   database("episode")
     .select()
     .then(episosdes => {
-      res.status(200).json(episosdes);
+      res.status(200).json({ startrek: episosdes });
     })
     .catch(error => {
       res.status(500).json({ error });
@@ -39,7 +39,7 @@ app.get("/startrek/episodes/:id", (req, res) => {
     .where("number", id)
     .select()
     .then(episosde => {
-      res.status(200).json(episosde);
+      res.status(200).json({ startrek: episosde });
     })
     .catch(error => {
       res.status(500).json({ error });
