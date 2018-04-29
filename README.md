@@ -39,7 +39,6 @@ yarn start
 ```
 ## Methods
 
-## Development
 ### GET startrek/series
 Returns a list of all the different Star Trek televevision series
 ### GET startrek/episodes
