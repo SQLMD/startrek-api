@@ -13,8 +13,8 @@ module.exports = function(config) {
   });
 
   return {
-    //episodes: require("./episodes")(knex)
-    directors: require("./directors")(knex)
+    episodes: require("./episodes")(knex)
+    //directors: require("./directors")(knex)
     //storyWriters: require("./storyWriters")(knex),
     //teleplayWriters: require("./teleplayWriters")(knex)
   };
