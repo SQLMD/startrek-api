@@ -6,11 +6,10 @@ const app = express();
 
 const bodyParser = require("body-parser");
 
-const configuration = require("./services/db/knexfile");
+const configuration = require("./db/knexfile");
 const database = require("knex")(configuration);
 
 const apiRouter = require("./resources/api.router");
-const services = require("./services")(config);
 
 app.use("/", [
   bodyParser.json(),

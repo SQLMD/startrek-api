@@ -1,10 +1,5 @@
 /* eslint-disable no-console */
-//const { expect } = require("chai");
-//const config = require("../config");
-//const knex = require("knex")(config.db);
-//const db = require("../services/db")(config.db);
-//const Promise = require("bluebird");
-/* eslint-disable prefer-destructuring, no-console, no-restricted-syntax */
+
 const PORT = process.env.PORT || 3000;
 /* eslint-disable no-unused-vars*/
 const should = require("chai").should();

@@ -1,7 +1,5 @@
 const router = require("express").Router();
 const controller = require("./api.controller.js");
-const configuration = require("../services/db/knexfile");
-const database = require("knex")(configuration);
 
 router.get(["/", "/startrek"], controller.home);
 

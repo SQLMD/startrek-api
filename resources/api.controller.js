@@ -1,4 +1,4 @@
-const configuration = require("../services/db/knexfile");
+const configuration = require("../db/knexfile");
 const database = require("knex")(configuration);
 
 const OK = 200;
