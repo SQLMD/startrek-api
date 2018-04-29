@@ -5,9 +5,9 @@ router.get(["/", "/startrek"], controller.home);
 
 router.get("/startrek/episodes", controller.getEpisodes);
 
-router.get("/startrek/episodes/:id", controller.getEpisode);
+router.get("/startrek/series", controller.getSeries);
 
-router.get("/startrek/episodes/series/:id", controller.getSeries);
+router.get("/startrek/episodes/:id", controller.getEpisode);
 
 router.post("/startrek/episodes", controller.createEpisode);
 
